@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Campfire gallery</title>
+    <link rel="stylesheet" href="http://d.zaix.ru/uuUn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+</head>
+
+<body>
+<nav class="topnav" id="Topnav">
+    <form class="search" method="post" action="/">
+        <input type="number" name="input" placeholder="Image ID">
+        <button type="submit">Ok</button>
+    </form>
+    <a href="/?changeId=-1000">-1000</a>
+    <a href="/?changeId=-100">-100</a>
+    <a href="/?changeId=-10">-10</a>
+    <a href="/?changeId=10">+10</a>
+    <a href="/?changeId=100">+100</a>
+    <a href="/?changeId=1000">+1000</a>
+    <button  class="icon" >
+        <i class="fa fa-bars"></i>
+    </button>
+</nav>
+<main class="main">
+    <a id="prev" class="prev" href="/?changeId=-1">&#10094;</a>
+    <a id="next" class="next" href="/?changeId=1">&#10095;</a>
+    <img th:src="'https://campfire.moe/api/image/' + ${id}" id="image" alt="The image is missing :(">
+</main>
+</body>
+</html>
