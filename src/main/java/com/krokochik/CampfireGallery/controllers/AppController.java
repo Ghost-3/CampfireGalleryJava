@@ -40,9 +40,45 @@ public class AppController {
         }
     }
 
+    @GetMapping("/extended")
+    public String mainExtended(Model model, @RequestParam(name = "id", required = false) String id, @RequestParam(name = "changeId", required = false) String changeId) {
+        try {
+            globalId = Long.parseLong(id);
+        } catch (NumberFormatException ignored) {
+            return "redirect:/extended/?id=1";
+        }
+
+        try {
+            globalChangeID = Long.parseLong(changeId);
+            globalId = globalId + globalChangeID;
+        } catch (NumberFormatException ignored) {}
+
+        if (globalId < 1)
+            return "redirect:/extended/?id=1";
+
+        for(int i = 0; i < 9; i++){
+            model.addAttribute("id" + i, globalId + "");
+        }
+        for(int i = 9; i < 15; i++){
+            model.addAttribute("id" + i, globalId + (i - 9) + "");
+        }
+        model.addAttribute("topnav", topnav);
+
+        if (id.equals(globalId + "")) {
+            return "extendedMain";
+        } else {
+            return "redirect:/extended/?id=" + globalId;
+        }
+    }
+
     @PostMapping("/")
     public String mainPost(Model model, HttpServletRequest request) {
         return "redirect:?id=" + request.getParameter("input");
+    }
+
+    @PostMapping("/extended")
+    public String extendedMainPost(Model model, HttpServletRequest request) {
+        return "redirect:extended/?id=" + request.getParameter("input");
     }
 
     @GetMapping("/switchTopNav")
@@ -54,6 +90,17 @@ public class AppController {
 
         model.addAttribute("topnav", topnav);
         return "redirect:?id=" + globalId;
+    }
+
+    @GetMapping("/extended/switchTopNav")
+    public String extendedSwitchGet(Model model, HttpServletRequest request) {
+        switch (topnav) {
+            case "topnav" -> topnav = "topnav responsive";
+            case "topnav responsive" -> topnav = "topnav";
+        }
+
+        model.addAttribute("topnav", topnav);
+        return "redirect:/extended/?id=" + globalId;
     }
 
 

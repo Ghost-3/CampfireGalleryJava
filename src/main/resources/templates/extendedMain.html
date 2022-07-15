@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Campfire gallery</title>
+    <link href="../static/style1.css" th:href="@{/style1.css}" rel="stylesheet" />
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://raw.githubusercontent.com/Ghost-3/CampfireGallery/main/favicon.png" rel="icon"/>
+</head>
+
+<body>
+<nav th:class="${topnav}" id="Topnav">
+    <form class="search" method="post" action="/extended">
+        <input min="1" id="inputID" type="number" name="input" th:placeholder="'ID: ' + ${id0}">
+        <button id="inputButton" type="submit">Ok</button>
+    </form>
+    <a th:href="'/extended/?id=' + ${id1} + '&changeId=-6000'">-1000</a>
+    <a th:href="'/extended/?id=' + ${id2} + '&changeId=-600'">-100</a>
+    <a th:href="'/extended/?id=' + ${id3} + '&changeId=-60'">-10</a>
+    <a th:href="'/extended/?id=' + ${id4} + '&changeId=60'">+10</a>
+    <a th:href="'/extended/?id=' + ${id5} + '&changeId=600'">+100</a>
+    <a th:href="'/extended/?id=' + ${id6} + '&changeId=6000'">+1000</a>
+    <a href="/">Switch</a>
+    <button  class="icon" onclick="window.location.href='switchTopNav';">
+        <i class="fa fa-bars"></i>
+    </button>
+</nav>
+<main class="main">
+    <a id="prev" class="prev" th:href="'/extended/?id=' + ${id7} + '&changeId=-6'">&#10094;</a>
+    <a id="next" class="next" th:href="'/extended/?id=' + ${id8} + '&changeId=6'">&#10095;</a>
+    <div id="gallery" class="row">
+        <img th:src="'https://campfire.moe/api/image/' + ${id9}">
+        <img th:src="'https://campfire.moe/api/image/' + ${id10}">
+        <img th:src="'https://campfire.moe/api/image/' + ${id11}">
+        <img th:src="'https://campfire.moe/api/image/' + ${id12}">
+        <img th:src="'https://campfire.moe/api/image/' + ${id13}">
+        <img th:src="'https://campfire.moe/api/image/' + ${id14}">
+    </div>
+</main>
+</body>
+</html>
