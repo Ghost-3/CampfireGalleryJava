@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AppController {
 
     public long id = 1;
+    String topnav = "topnav";
 
     @GetMapping("/")
     public String main(Model model, HttpServletRequest request) {
@@ -35,9 +36,10 @@ public class AppController {
         System.out.println(id);
 
         model.addAttribute("id", id + "");
+        model.addAttribute("topnav", topnav);
 
         if (changeID != 0) {
-            return "redirect:?id=" + request.getParameter(id + "");
+            return "redirect:?id=" + id;
         }
         else {
             return "main";
@@ -50,5 +52,14 @@ public class AppController {
         return "redirect:?id=" + request.getParameter("input");
     }
 
+    @GetMapping("/switchTopNav")
+    public String switchGet(Model model, HttpServletRequest request){
+        switch (topnav) {
+            case "topnav" -> topnav = "topnav responsive";
+            case "topnav responsive" -> topnav = "topnav";
+        }
+        model.addAttribute("topnav", topnav);
+        return "redirect:?id=" + request.getParameter("input");
+    }
 
 }
