@@ -12,23 +12,23 @@
 <body>
 <nav th:class="${topnav}" id="Topnav">
     <form class="search" method="post" action="/">
-        <input id="inputID" type="number" name="input" th:placeholder="'ID: ' + ${imgid}">
+        <input min="1" id="inputID" type="number" name="input" th:placeholder="'ID: ' + ${id0}">
         <button id="inputButton" type="submit">Ok</button>
     </form>
-    <a href="/?changeId=-1000">-1000</a>
-    <a href="/?changeId=-100">-100</a>
-    <a href="/?changeId=-10">-10</a>
-    <a href="/?changeId=10">+10</a>
-    <a href="/?changeId=100">+100</a>
-    <a href="/?changeId=1000">+1000</a>
+    <a th:href="'/?id=' + ${id1} + '&changeId=-1000'">-1000</a>
+    <a th:href="'/?id=' + ${id2} + '&changeId=-100'">-100</a>
+    <a th:href="'/?id=' + ${id3} + '&changeId=-10'">-10</a>
+    <a th:href="'/?id=' + ${id4} + '&changeId=10'">+10</a>
+    <a th:href="'/?id=' + ${id5} + '&changeId=100'">+100</a>
+    <a th:href="'/?id=' + ${id6} + '&changeId=1000'">+1000</a>
     <button  class="icon" onclick="window.location.href='/switchTopNav';">
         <i class="fa fa-bars"></i>
     </button>
 </nav>
 <main class="main">
-    <a id="prev" class="prev" href="/?changeId=-1">&#10094;</a>
-    <a id="next" class="next" href="/?changeId=1">&#10095;</a>
-    <img th:src="'https://campfire.moe/api/image/' + ${id}" id="image" alt="The image is missing :(">
+    <a id="prev" class="prev" th:href="'/?id=' + ${id7} + '&changeId=-1'">&#10094;</a>
+    <a id="next" class="next" th:href="'/?id=' + ${id8} + '&changeId=1'">&#10095;</a>
+    <img th:src="'https://campfire.moe/api/image/' + ${id9}" id="image" alt="The image is missing :(">
 </main>
 </body>
 </html>
