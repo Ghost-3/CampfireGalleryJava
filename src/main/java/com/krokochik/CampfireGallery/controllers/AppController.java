@@ -18,12 +18,14 @@ public class AppController {
 
     @GetMapping("/")
     public String main(Model model, HttpServletRequest request) {
+        long changeID = 0;
         try {
             id = Integer.parseInt(request.getParameter("id"));
         }
         catch (NumberFormatException formatException){}
         try{
-            id = id + Integer.parseInt(request.getParameter("changeId"));
+            changeID = Integer.parseInt(request.getParameter("changeId"));
+            id = id + changeID;
         }
         catch(NumberFormatException numberFormatException){}
 
@@ -34,7 +36,13 @@ public class AppController {
 
         model.addAttribute("id", id + "");
 
-        return "main";
+        if (changeID != 0) {
+            return "redirect:?id=" + request.getParameter(id + "");
+        }
+        else {
+            return "main";
+        }
+
     }
 
     @PostMapping("/")
