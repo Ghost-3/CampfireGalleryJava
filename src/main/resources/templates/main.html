@@ -12,8 +12,8 @@
 <body>
 <nav th:class="${topnav}" id="Topnav">
     <form class="search" method="post" action="/">
-        <input type="number" name="input" placeholder="Image ID">
-        <button type="submit">Ok</button>
+        <input id="inputID" type="number" name="input" th:placeholder="'ID: ' + ${imgid}">
+        <button id="inputButton" type="submit">Ok</button>
     </form>
     <a href="/?changeId=-1000">-1000</a>
     <a href="/?changeId=-100">-100</a>

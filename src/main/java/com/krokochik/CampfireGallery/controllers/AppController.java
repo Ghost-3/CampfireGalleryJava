@@ -36,6 +36,7 @@ public class AppController {
         System.out.println(id);
 
         model.addAttribute("id", id + "");
+        model.addAttribute("imgid", id + "");
         model.addAttribute("topnav", topnav);
 
         if (changeID != 0) {
@@ -59,7 +60,7 @@ public class AppController {
             case "topnav responsive" -> topnav = "topnav";
         }
         model.addAttribute("topnav", topnav);
-        return "redirect:?id=" + request.getParameter("input");
+        return "redirect:?id=" + id;
     }
 
 }
