@@ -60,13 +60,11 @@ public class AppController {
     @GetMapping({"/galleryImageControllerFactorySolutionStrategyPrinter", "/strategyPrinter", "/Printer", "/printer"})
     public String galleryImageControllerFactorySolutionStrategyPrinter1(Model model) {
         String[] img = {"https://sun9-32.userapi.com/c543101/v543101051/4e88e/ROU4N8eD22U.jpg",
-                "http://www.semyaimir.ru/UserFiles/Image/zabavnye_istorii/zloy_printer.gif",
                 "https://img2.joyreactor.cc/pics/post/принтер-Комиксы-Мемы-смешные-картинки-697290.jpeg",
                 "https://admem.ru/content/images/1390958305.jpg"};
-        int random = (int) (Math.random() * 4);
+        int random = (int) (Math.random() * 3);
 
         model.addAttribute("printerImg", img[random]);
-        model.addAttribute("width", random == 2 ? "25%" : "50%");
 
         return "printer";
     }
