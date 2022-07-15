@@ -26,7 +26,7 @@ public class AppController {
         } catch (NumberFormatException ignored) {}
 
         if (globalId < 1)
-            globalId = 1;
+            return "redirect:/?id=1";
 
         for(int i = 0; i < 10; i++){
             model.addAttribute("id" + i, id + "");
