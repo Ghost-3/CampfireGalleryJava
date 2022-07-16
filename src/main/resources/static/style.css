@@ -2,8 +2,8 @@
 
 :root {
     --main-bg: #18181b;
-    --topnav-bg: rgba(0,0,0,0.3);
-    --topnav-hover: rgba(0,0,0,0.5);
+    --topNav-bg: rgba(0,0,0,0.3);
+    --topNav-hover: rgba(0,0,0,0.5);
     --text-color: #ccc;
     --arrow-color: white;
     --arrow-bg: rgba(0,0,0,0.8);
@@ -32,7 +32,7 @@ input[type=number] {
 
 .topNav {
     overflow: hidden;
-    background-color: var(--topnav-bg);
+    background-color: var(--topNav-bg);
     border-radius: 5px;
 }
 
@@ -64,18 +64,18 @@ button {
 
 #inputID {
     max-width: 100px;
-    background-color: var(--topnav-hover);
-    border-bottom: 1px solid var(--topnav-hover);
+    background-color: var(--topNav-hover);
+    border-bottom: 1px solid var(--topNav-hover);
 }
 
 #inputButton:hover, #inputButton:active {
-    border-bottom: 1px solid var(--topnav-hover);
+    border-bottom: 1px solid var(--topNav-hover);
 }
 
 .topNav a:hover, button:hover, #inputButton:hover,
 .topNav a:active, button:active, #inputButton:active {
     cursor: pointer;
-    background-color: var(--topnav-hover);
+    background-color: var(--topNav-hover);
     color: var(--text-color);
 }
 

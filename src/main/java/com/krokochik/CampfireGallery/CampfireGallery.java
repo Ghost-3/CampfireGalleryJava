@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CampfireGalleryJava {
+public class CampfireGallery {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CampfireGalleryJava.class, args);
+		SpringApplication.run(CampfireGallery.class, args);
 	}
 
 }

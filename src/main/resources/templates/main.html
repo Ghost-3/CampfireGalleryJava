@@ -7,22 +7,13 @@
     <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://raw.githubusercontent.com/Ghost-3/CampfireGallery/main/favicon.png" rel="icon"/>
-    <script language="JavaScript">
-        document.addEventListener("keyup", function(event) {
-        if (event.key == "ArrowLeft") {
-            document.getElementById('prev').click();
-        }
-        else if (event.key == "ArrowRight") {
-            document.getElementById('next').click();
-        }
-        });
-    </script>
+
 </head>
 
 <body>
 <nav th:class="${topNav}" id="Topnav">
     <form class="search" method="post" action="/">
-        <input min="1" id="inputID" type="number" name="input" th:placeholder="'Id: ' + ${id0}">
+        <input type="number" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" min="1" id="input" name="input" th:placeholder="'Id: ' + ${id0}" />
         <button id="inputButton" type="submit">
             <i class="fa fa-check"></i>
         </button>
@@ -45,5 +36,20 @@
     <a id="next" class="next" th:href="'/?id=' + ${id9} + '&changeId=1'">&#10095;</a>
     <img th:src="'https://campfire.moe/api/image/' + ${id10}" id="image" alt="The image is missing :(">
 </main>
+<script language="JavaScript">
+        document.addEventListener("keyup", function(event) {
+        if (event.key == "ArrowLeft") {
+            document.getElementById('prev').click();
+        }
+        else if (event.key == "ArrowRight") {
+            document.getElementById('next').click();
+        }
+        else if (event.key == "Enter") {
+            document.getElementById('inputButton').click();
+        }
+        });
+        let input = document.querySelector('#input');
+        input.focus();
+</script>
 </body>
 </html>
