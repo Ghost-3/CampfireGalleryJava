@@ -28,7 +28,7 @@ public class AppController {
         if (globalId < 1)
             return "redirect:/?id=1";
 
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 11; i++){
             model.addAttribute("id" + i, id + "");
         }
         model.addAttribute("topnav", topnav);
@@ -56,11 +56,11 @@ public class AppController {
         if (globalId < 1)
             return "redirect:/extended/?id=1";
 
-        for(int i = 0; i < 9; i++){
+        for(int i = 0; i < 10; i++){
             model.addAttribute("id" + i, globalId + "");
         }
-        for(int i = 9; i < 15; i++){
-            model.addAttribute("id" + i, globalId + (i - 9) + "");
+        for(int i = 10; i < 16; i++){
+            model.addAttribute("id" + i, globalId + (i - 10) + "");
         }
         model.addAttribute("topnav", topnav);
 

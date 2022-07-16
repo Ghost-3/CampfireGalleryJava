@@ -7,13 +7,25 @@
     <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://raw.githubusercontent.com/Ghost-3/CampfireGallery/main/favicon.png" rel="icon"/>
+    <script language="JavaScript">
+        document.addEventListener("keyup", function(event) {
+        if (event.key == "ArrowLeft") {
+            document.getElementById('prev').click();
+        }
+        else if (event.key == "ArrowRight") {
+            document.getElementById('next').click();
+        }
+        });
+    </script>
 </head>
 
 <body>
 <nav th:class="${topnav}" id="Topnav">
     <form class="search" method="post" action="/">
-        <input min="1" id="inputID" type="number" name="input" th:placeholder="'ID: ' + ${id0}">
-        <button id="inputButton" type="submit">Ok</button>
+        <input min="1" id="inputID" type="number" name="input" th:placeholder="'Id: ' + ${id0}">
+        <button id="inputButton" type="submit">
+            <i class="fa fa-check"></i>
+        </button>
     </form>
     <a th:href="'/?id=' + ${id1} + '&changeId=-1000'">-1000</a>
     <a th:href="'/?id=' + ${id2} + '&changeId=-100'">-100</a>
@@ -21,15 +33,17 @@
     <a th:href="'/?id=' + ${id4} + '&changeId=10'">+10</a>
     <a th:href="'/?id=' + ${id5} + '&changeId=100'">+100</a>
     <a th:href="'/?id=' + ${id6} + '&changeId=1000'">+1000</a>
-    <a href="/extended">Switch</a>
+    <a th:href="'/extended/?id=' + ${id7}">Expand
+        <i class="fa fa-toggle-off"></i>
+    </a>
     <button  class="icon" onclick="window.location.href='/switchTopNav';">
         <i class="fa fa-bars"></i>
     </button>
 </nav>
 <main class="main">
-    <a id="prev" class="prev" th:href="'/?id=' + ${id7} + '&changeId=-1'">&#10094;</a>
-    <a id="next" class="next" th:href="'/?id=' + ${id8} + '&changeId=1'">&#10095;</a>
-    <img th:src="'https://campfire.moe/api/image/' + ${id9}" id="image" alt="The image is missing :(">
+    <a id="prev" class="prev" th:href="'/?id=' + ${id8} + '&changeId=-1'">&#10094;</a>
+    <a id="next" class="next" th:href="'/?id=' + ${id9} + '&changeId=1'">&#10095;</a>
+    <img th:src="'https://campfire.moe/api/image/' + ${id10}" id="image" alt="The image is missing :(">
 </main>
 </body>
 </html>
