@@ -62,8 +62,8 @@ button {
     border-bottom: 1px solid var(--transparent);
 }
 
-#inputID {
-    max-width: 100px;
+#input {
+    max-width: 150px;
     background-color: var(--topNav-hover);
     border-bottom: 1px solid var(--topNav-hover);
 }
