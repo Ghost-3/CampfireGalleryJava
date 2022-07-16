@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class AppController {
 
-    long globalId = 0, globalChangeID = 0;
+    long globalId, globalChangeID;
     String topnav = "topnav";
 
     @GetMapping("/")
@@ -22,7 +22,7 @@ public class AppController {
 
         try {
             globalChangeID = Long.parseLong(changeId);
-            globalId = globalId + globalChangeID;
+            globalId += globalChangeID;
         } catch (NumberFormatException ignored) {}
 
         if (globalId < 1)
@@ -50,7 +50,7 @@ public class AppController {
 
         try {
             globalChangeID = Long.parseLong(changeId);
-            globalId = globalId + globalChangeID;
+            globalId += globalChangeID;
         } catch (NumberFormatException ignored) {}
 
         if (globalId < 1)
