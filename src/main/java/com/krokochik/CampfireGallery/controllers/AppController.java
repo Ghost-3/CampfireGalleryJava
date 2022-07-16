@@ -5,39 +5,44 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.stream.IntStream;
 
 @Controller
 public class AppController {
 
     long globalId, globalChangeID;
-    String topnav = "topnav";
+    String topNav = "topNav";
+    final String[] img = {"https://sun9-32.userapi.com/c543101/v543101051/4e88e/ROU4N8eD22U.jpg",
+                          "https://img2.joyreactor.cc/pics/post/принтер-Комиксы-Мемы-смешные-картинки-697290.jpeg",
+                          "https://admem.ru/content/images/1390958305.jpg"};
 
     @GetMapping("/")
     public String main(Model model, @RequestParam(name = "id", required = false) String id, @RequestParam(name = "changeId", required = false) String changeId) {
-        try {
+        try
+        {
             globalId = Long.parseLong(id);
-        } catch (NumberFormatException ignored) {
+        }
+        catch (NumberFormatException ignored) {
             return "redirect:/?id=1";
         }
 
-        try {
+        try
+        {
             globalChangeID = Long.parseLong(changeId);
             globalId += globalChangeID;
-        } catch (NumberFormatException ignored) {}
+        }
+        catch (NumberFormatException ignored){}
 
         if (globalId < 1)
             return "redirect:/?id=1";
 
-        for(int i = 0; i < 11; i++){
-            model.addAttribute("id" + i, id + "");
-        }
-        model.addAttribute("topnav", topnav);
+        IntStream.range(0, 11).forEach(i -> model.addAttribute("id" + i, id + ""));
+        model.addAttribute("topNav", topNav);
 
-        if (id.equals(globalId + "")) {
+        if (id.equals(globalId + ""))
             return "main";
-        } else {
+        else
             return "redirect:?id=" + globalId;
-        }
     }
 
     @GetMapping("/extended")
@@ -62,7 +67,7 @@ public class AppController {
         for(int i = 10; i < 16; i++){
             model.addAttribute("id" + i, globalId + (i - 10) + "");
         }
-        model.addAttribute("topnav", topnav);
+        model.addAttribute("topNav", topNav);
 
         if (id.equals(globalId + "")) {
             return "extendedMain";
@@ -83,36 +88,32 @@ public class AppController {
 
     @GetMapping("/switchTopNav")
     public String switchGet(Model model, HttpServletRequest request) {
-        switch (topnav) {
-            case "topnav" -> topnav = "topnav responsive";
-            case "topnav responsive" -> topnav = "topnav";
+        switch (topNav) {
+            case "topNav" -> topNav = "topNav responsive";
+            case "topNav responsive" -> topNav = "topNav";
         }
 
-        model.addAttribute("topnav", topnav);
+        model.addAttribute("topNav", topNav);
         return "redirect:?id=" + globalId;
     }
 
     @GetMapping("/extended/switchTopNav")
     public String extendedSwitchGet(Model model, HttpServletRequest request) {
-        switch (topnav) {
-            case "topnav" -> topnav = "topnav responsive";
-            case "topnav responsive" -> topnav = "topnav";
+        switch (topNav) {
+            case "topNav" -> topNav = "topNav responsive";
+            case "topNav responsive" -> topNav = "topNav";
         }
 
-        model.addAttribute("topnav", topnav);
+        model.addAttribute("topNav", topNav);
         return "redirect:/extended/?id=" + globalId;
     }
 
 
     @GetMapping({"/galleryImageControllerFactorySolutionStrategyPrinter", "/strategyPrinter", "/Printer", "/printer"})
-    public String galleryImageControllerFactorySolutionStrategyPrinter1(Model model) {
-        String[] img = {"https://sun9-32.userapi.com/c543101/v543101051/4e88e/ROU4N8eD22U.jpg",
-                "https://img2.joyreactor.cc/pics/post/принтер-Комиксы-Мемы-смешные-картинки-697290.jpeg",
-                "https://admem.ru/content/images/1390958305.jpg"};
-        int random = (int) (Math.random() * 3);
+    public String strategyPrinter(Model model) {
 
-        model.addAttribute("printerImg", img[random]);
 
+        model.addAttribute("printerImg", img[(int) (Math.random() * 3)]);
         return "printer";
     }
 
