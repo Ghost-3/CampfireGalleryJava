@@ -44,3 +44,9 @@ a:hover {
     max-width: 100px;
     background-color: var(--topnav-hover);
     border-bottom: 1px solid var(--topnav-hover);
+
+.top {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+}
