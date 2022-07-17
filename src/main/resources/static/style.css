@@ -36,7 +36,7 @@ input[type=number] {
     border-radius: 5px;
 }
 
-.topNav a, input, #switchTN, #inputButton {
+.topNav a, input, button {
     float: left;
     display: block;
     color: var(--text-color);
@@ -48,9 +48,7 @@ input[type=number] {
     transition: 0.6s ease;
 }
 
-
-
-input, #switchTN, #inputButton {
+input, button {
     padding: 13px 16px;
     border: 0px;
     outline: none;
@@ -60,7 +58,7 @@ input, #switchTN, #inputButton {
     margin-right: 5px;
 }
 
-#switchTN, #inputButton {
+button {
     background-color: var(--transparent);
     border-bottom: 1px solid var(--transparent);
 }
@@ -75,8 +73,8 @@ input, #switchTN, #inputButton {
     border-bottom: 1px solid var(--topNav-hover);
 }
 
-.topNav a:hover, #switchTN:hover, #inputButton:hover,
-.topNav a:active, #switchTN:active, #inputButton:active {
+.topNav a:hover, button:hover, #inputButton:hover,
+.topNav a:active, button:active, #inputButton:active {
     cursor: pointer;
     background-color: var(--topNav-hover);
     color: var(--text-color);
