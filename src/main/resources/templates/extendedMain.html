@@ -65,8 +65,7 @@
             // cancel if already on top
             if (document.scrollingElement.scrollTop === 0) {
                 let image = document.querySelector('#firstImage');
-                image.style.background = 'none';
-                image.style.background = '';
+                image.removeClass('active');
             }
 
             const cosParameter = document.scrollingElement.scrollTop / 2;
@@ -84,8 +83,7 @@
             }
             window.requestAnimationFrame(step);
             let image = document.querySelector('#firstImage');
-            image.style.background = 'none';
-            image.style.background = '';
+            image.removeClass('active');
         }
 </script>
 </body>
