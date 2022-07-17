@@ -63,7 +63,7 @@ button {
 }
 
 #input {
-    max-width: 150px;
+    max-width: 120px;
     background-color: var(--topNav-hover);
     border-bottom: 1px solid var(--topNav-hover);
 }
