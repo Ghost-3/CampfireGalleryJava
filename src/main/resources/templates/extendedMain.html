@@ -63,7 +63,11 @@
 
         function scrollToTop (duration) {
             // cancel if already on top
-            if (document.scrollingElement.scrollTop === 0) document.querySelector('#firstImage').click();
+            if (document.scrollingElement.scrollTop === 0) {
+                let image = document.querySelector('#firstImage');
+                image.style.background = 'none';
+                image.style.background = '';
+            }
 
             const cosParameter = document.scrollingElement.scrollTop / 2;
             let scrollCount = 0, oldTimestamp = null;
@@ -79,7 +83,9 @@
                 window.requestAnimationFrame(step);
             }
             window.requestAnimationFrame(step);
-            document.querySelector('#firstImage').click();
+            let image = document.querySelector('#firstImage');
+            image.style.background = 'none';
+            image.style.background = '';
         }
 </script>
 </body>
