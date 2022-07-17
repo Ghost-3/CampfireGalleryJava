@@ -63,7 +63,7 @@
 
         function scrollToTop (duration) {
             // cancel if already on top
-            if (document.scrollingElement.scrollTop === 0) return;
+            if (document.scrollingElement.scrollTop === 0) document.elementFromPoint(0, 0).click();
 
             const cosParameter = document.scrollingElement.scrollTop / 2;
             let scrollCount = 0, oldTimestamp = null;
@@ -79,6 +79,7 @@
                 window.requestAnimationFrame(step);
             }
             window.requestAnimationFrame(step);
+            document.elementFromPoint(0, 0).click();
         }
 </script>
 </body>
