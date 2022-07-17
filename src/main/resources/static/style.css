@@ -48,9 +48,10 @@ input[type=number] {
     transition: 0.6s ease;
 }
 
-input, button, input:focus, button:focus {
+input, button {
     padding: 13px 16px;
     border: 0px;
+    outline: none;
 }
 
 #inputButton {
@@ -62,7 +63,7 @@ button {
     border-bottom: 1px solid var(--transparent);
 }
 
-#input, #input:focus {
+#input {
     max-width: 120px;
     background-color: var(--topNav-hover);
     border-bottom: 1px solid var(--topNav-hover);
