@@ -83,7 +83,7 @@ button {
     display: none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 740px) {
     .topNav a:not(:first-child) {display: none;}
     .topNav .icon {
         float: right;
@@ -91,7 +91,7 @@ button {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 740px) {
     .topNav.responsive {position: relative;}
     .topNav.responsive .icon {
         position: absolute;
