@@ -35,7 +35,7 @@
     <a id="prev" class="prev" th:href="'/extended/?id=' + ${id8} + '&changeId=-6'">&#10094;</a>
     <a id="next" class="next" th:href="'/extended/?id=' + ${id9} + '&changeId=6'">&#10095;</a>
     <div id="gallery" class="row">
-        <img th:src="'https://campfire.moe/api/image/' + ${id10}">
+        <img id="firstImage" th:src="'https://campfire.moe/api/image/' + ${id10}">
         <img th:src="'https://campfire.moe/api/image/' + ${id11}">
         <img th:src="'https://campfire.moe/api/image/' + ${id12}">
         <img th:src="'https://campfire.moe/api/image/' + ${id13}">
@@ -79,6 +79,9 @@
                 window.requestAnimationFrame(step);
             }
             window.requestAnimationFrame(step);
+            let image = document.querySelector('#firstImage');
+            image.style.background = 'none';
+            image.style.background = '';
         }
 </script>
 </body>
