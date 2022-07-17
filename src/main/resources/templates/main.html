@@ -13,7 +13,7 @@
 <body>
 <nav th:class="${topNav}" id="Topnav">
     <form class="search" method="post" action="/">
-        <input type="number" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" min="1" id="input" name="input" th:placeholder="'Id: ' + ${id0}" />
+        <input type="number" onkeydown="javascript: return event.key === 'Backspace' || event.key === 'Delete' ? true : !isNaN(Number(event.key))" min="1" id="input" name="input" th:placeholder="'Id: ' + ${id0}" />
         <button id="inputButton" type="submit">
             <i class="fa fa-check"></i>
         </button>
