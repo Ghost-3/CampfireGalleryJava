@@ -13,8 +13,8 @@ public class AppController {
     long globalId, globalChangeID;
     String topNav = "topNav";
     final String[] img = {"https://sun9-32.userapi.com/c543101/v543101051/4e88e/ROU4N8eD22U.jpg",
-                          "https://img2.joyreactor.cc/pics/post/принтер-Комиксы-Мемы-смешные-картинки-697290.jpeg",
-                          "https://admem.ru/content/images/1390958305.jpg"};
+            "https://img2.joyreactor.cc/pics/post/принтер-Комиксы-Мемы-смешные-картинки-697290.jpeg",
+            "https://admem.ru/content/images/1390958305.jpg"};
 
     //get requests to main page
     @GetMapping("/")

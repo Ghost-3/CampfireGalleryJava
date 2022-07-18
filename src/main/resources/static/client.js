@@ -1,26 +1,29 @@
-document.addEventListener("keyup", function(event)
-{
-    if (event.key == "ArrowLeft")
-    {
-        document.getElementById('prev').click();
-    }
-    else if (event.key == "ArrowRight")
-    {
-        document.getElementById('next').click();
-    }
-    else if (event.key == "ArrowUp")
-    {
-        document.getElementById('backToTop').click();
-    }
-});
-
 let input = document.querySelector('#input');
-input.focus();
+
+function init () {
+document.addEventListener("keyup", function(event)
+    {
+        if (event.key == "ArrowLeft")
+        {
+            document.getElementById('prev').click();
+        }
+        else if (event.key == "ArrowRight")
+        {
+            document.getElementById('next').click();
+        }
+        else if (event.key == "ArrowUp")
+        {
+            document.getElementById('backToTop').click();
+        }
+    });
+
+    input.focus();
+}
 
 function scrollToTop (duration)
 {
     // cancel if already on top
-    if (document.scrollingElement.scrollTop === 0) return;
+    if (document.scrollingElement.scrollTop === 0){input.focus(); return;}
 
     const cosParameter = document.scrollingElement.scrollTop / 2;
     let scrollCount = 0, oldTimestamp = null;
@@ -40,3 +43,5 @@ function scrollToTop (duration)
 
     window.requestAnimationFrame(step);
 }
+
+init();

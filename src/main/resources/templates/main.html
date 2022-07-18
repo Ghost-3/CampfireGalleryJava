@@ -36,20 +36,6 @@
     <a id="next" class="next" th:href="'/?id=' + ${id9} + '&changeId=1'">&#10095;</a>
     <img th:src="'https://campfire.moe/api/image/' + ${id10}" id="image" alt="The image is missing :(">
 </main>
-<script language="JavaScript">
-        document.addEventListener("keyup", function(event) {
-        if (event.key == "ArrowLeft") {
-            document.getElementById('prev').click();
-        }
-        else if (event.key == "ArrowRight") {
-            document.getElementById('next').click();
-        }
-        else if (event.key == "Enter") {
-            document.getElementById('inputButton').click();
-        }
-        });
-        let input = document.querySelector('#input');
-        input.focus();
-</script>
+<script src="../static/client.js" th:src="@{/client.js}"></script>
 </body>
 </html>
