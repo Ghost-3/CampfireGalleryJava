@@ -3,15 +3,20 @@ var i = 0;
 var path = "";
 
 function init () {
-    if (window.innerWidth <= 740)
+    if (window.innerWidth <= 740 && window.inner > 500)
         document.getElementById("emergencyImage").width = 350;
+    else if (window.innerWidth <= 500)
+        document.getElementById("emergencyImage").width = 200;
     else
         document.getElementById("emergencyImage").width = 500;
+
     window.addEventListener('resize', function(event) {
-        if (window.innerWidth <= 740)
-                document.getElementById("emergencyImage").width = 350;
-            else
-                document.getElementById("emergencyImage").width = 500;
+        if (window.innerWidth <= 740 && window.inner > 500)
+            document.getElementById("emergencyImage").width = 350;
+        else if (window.innerWidth <= 500)
+            document.getElementById("emergencyImage").width = 200;
+        else
+            document.getElementById("emergencyImage").width = 500;
     }, true);
 
     if (location.pathname !== path)
