@@ -36,8 +36,8 @@
     <a id="prev" class="prev" th:href="'/?id=' + ${id8} + '&changeId=-1'">&#10094;</a>
     <a id="next" class="next" th:href="'/?id=' + ${id9} + '&changeId=1'">&#10095;</a>
     <div id="gallery" class="row">
-        <img th:src="'https://campfire.moe/api/image/' + ${id10}" id="image" alt="Image" style="visibility: hidden" onload="this.style.visibility = 'visible'" onerror="addError()">
-        <img id="emergencyImage" style="display: none" src="http://d.zaix.ru/uy32.png"></td></tr>
+        <img th:src="'https://campfire.moe/api/image/' + ${id10}" id="image" alt="Image" style="display: none" onload="this.style.display = ''" onerror="addError()">
+        <img id="emergencyImage" style="display: none" src="http://d.zaix.ru/uy67.png"></td></tr>
     </div>
 </main>
 <script src="../static/client.js" th:src="@{/client.js}"></script>
