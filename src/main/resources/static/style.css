@@ -108,7 +108,7 @@ button {
 
 /* Gallery */
 
-#image {
+#image, #emergencyImage {
     position: absolute;
     top: 50%;
     left: 50%;
