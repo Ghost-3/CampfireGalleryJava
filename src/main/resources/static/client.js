@@ -1,10 +1,17 @@
 let input = document.querySelector('#input');
 var i = 0;
+var path = "";
 
 function init () {
-document.addEventListener("keyup", function(event)
-    {
+    if(location.pathname !== path){
+        path = location.pathname;
+        i = 0;
+    }
+    if(checkError() === false)
         document.getElementById("emergencyImage").style.display = 'none';
+
+    document.addEventListener("keyup", function(event)
+    {
         if (event.key == "ArrowLeft")
         {
             document.getElementById('prev').click();
@@ -18,12 +25,6 @@ document.addEventListener("keyup", function(event)
             document.querySelector('#inputButton').click();
         }
     });
-
-    var images = document.querySelectorAll("img");
-    for(var i = 0; i < images.length; i++)
-    {
-       images[i].addEventListener("load", () => document.getElementById("emergencyImage").style.visible = 'hidden');
-    }
 
     input.focus();
 }
@@ -53,13 +54,18 @@ function scrollToTop (duration)
 }
 
 function addError(){
-    if(++i === location.pathname === "/" ? 1 : 6){
+    if (++i === (location.pathname === "/" ? 1 : 6)){
         document.getElementById("emergencyImage").style.display = '';
         i = 0;
         return;
     }
     document.getElementById("emergencyImage").style.display = 'none';
+}
 
+function checkError(){
+    if (i === (location.pathname === "/" ? 1 : 6)) { return true; }
+
+    return false;
 }
 
 init();
