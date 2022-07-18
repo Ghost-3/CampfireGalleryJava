@@ -1,8 +1,10 @@
 let input = document.querySelector('#input');
+var i = 0;
 
 function init () {
 document.addEventListener("keyup", function(event)
     {
+        document.getElementById("emergencyImage").style.display = 'none';
         if (event.key == "ArrowLeft")
         {
             document.getElementById('prev').click();
@@ -11,11 +13,17 @@ document.addEventListener("keyup", function(event)
         {
             document.getElementById('next').click();
         }
-        else if (event.key == "ArrowUp")
+        else if (event.key == "Enter")
         {
-            document.getElementById('backToTop').click();
+            document.querySelector('#inputButton').click();
         }
     });
+
+    var images = document.querySelectorAll("img");
+    for(var i = 0; i < images.length; i++)
+    {
+       images[i].addEventListener("load", () => document.getElementById("emergencyImage").style.visible = 'hidden');
+    }
 
     input.focus();
 }
@@ -42,6 +50,16 @@ function scrollToTop (duration)
     }
 
     window.requestAnimationFrame(step);
+}
+
+function addError(){
+    if(++i === location.pathname === "/" ? 1 : 6){
+        document.getElementById("emergencyImage").style.display = '';
+        i = 0;
+        return;
+    }
+    document.getElementById("emergencyImage").style.display = 'none';
+
 }
 
 init();

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Campfire gallery</title>
+    <link href="../static/style1.css?ver=1" th:href="@{/style1.css}" rel="stylesheet" />
     <link href="../static/style.css?ver=1" th:href="@{/style.css}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://raw.githubusercontent.com/Ghost-3/CampfireGallery/main/favicon.png" rel="icon"/>
@@ -34,7 +35,10 @@
 <main class="main">
     <a id="prev" class="prev" th:href="'/?id=' + ${id8} + '&changeId=-1'">&#10094;</a>
     <a id="next" class="next" th:href="'/?id=' + ${id9} + '&changeId=1'">&#10095;</a>
-    <img th:src="'https://campfire.moe/api/image/' + ${id10}" id="image" alt="The image is missing :(">
+    <div id="gallery" class="row">
+        <img th:src="'https://campfire.moe/api/image/' + ${id10}" id="image" alt="Image" style="visibility: hidden; display: none" onload="this.style.visibility = 'visible'" onerror="addError()">
+        <img id="emergencyImage" style="display: none" src="http://pm1.narvii.com/7406/0a50b4b91af8ce7b4180191b7967097a9744e528r1-768-768v2_uhq.jpg"></td></tr>
+    </div>
 </main>
 <script src="../static/client.js" th:src="@{/client.js}"></script>
 </body>
