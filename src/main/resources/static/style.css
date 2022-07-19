@@ -31,6 +31,8 @@ input[type=number] {
 /* Navigation bar */
 
 .topNav {
+    position: absolute;
+    width: 100%;
     overflow: hidden;
     background-color: var(--topNav-bg);
     border-radius: 5px;
@@ -49,28 +51,17 @@ input[type=number] {
 }
 
 input, button {
-    padding: 13px 16px;
     border: 0px;
     outline: none;
 }
 
 #inputButton {
-    margin-right: 5px;
-}
-
-button {
     background-color: var(--transparent);
-    border-bottom: 1px solid var(--transparent);
 }
 
 #input {
     max-width: 150px;
     background-color: var(--topNav-hover);
-    border-bottom: 1px solid var(--topNav-hover);
-}
-
-#inputButton:hover, #inputButton:active {
-    border-bottom: 1px solid var(--topNav-hover);
 }
 
 .topNav a:hover, button:hover, #inputButton:hover,
