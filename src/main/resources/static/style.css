@@ -99,7 +99,7 @@ button {
         right: 0;
         top: 0;
     }
-    .topNav.responsive a, .topNav.responsive.search {
+    .topNav.responsive a, .topNav.responsive button {
         float: none;
         display: block;
         text-align: left;
